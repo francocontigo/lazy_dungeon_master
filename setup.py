@@ -25,9 +25,9 @@ def read_requirements(path):
 
 
 setup(
-    name="dundie",
+    name="lazydm",
     version="0.1.0",
-    description="Reward Point System for Dunder Mifflin",
+    description="Tools for lazy DMs",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
     author="Francocontigo",
