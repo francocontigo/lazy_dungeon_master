@@ -35,9 +35,12 @@ def encounter_level_number_of_players(players: list) -> list:
     """
     recommended_xp = []
 
-    for num_players, level in players:
-        recommended = [xp * num_players for xp in TABLE[level - 1]]
-        recommended_xp.append(recommended)
+    try:
+        for num_players, level in players:
+            recommended = [xp * num_players for xp in TABLE[level - 1]]
+            recommended_xp.append(recommended)
+    except ValueError:
+        return []
 
     if len(recommended_xp) > 1:
         sums = [0] * len(recommended_xp[0])
@@ -49,6 +52,3 @@ def encounter_level_number_of_players(players: list) -> list:
         return sums
     else:
         return recommended_xp[0] if recommended_xp else []
-
-
-print(encounter_level_number_of_players([[4, 4]]))
