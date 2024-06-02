@@ -1,6 +1,6 @@
 # Matrix of XP per level of character
-# easy, mendium, hard, mortal
-TABELA = [
+# easy, mendium, hard, deadly
+TABLE = [
     [25, 50, 75, 100],
     [50, 100, 150, 200],
     [75, 150, 225, 400],
@@ -24,9 +24,31 @@ TABELA = [
 ]
 
 
-def encounter_level_number_of_players(players):
-    """Returns the the recommended XP of the encounter"""
-    for player in players:
-        players[player[0]]
-    recommended_xp = ...
-    return recommended_xp
+def encounter_level_number_of_players(players: list) -> list:
+    """Returns the recommended XP of the encounter
+
+    Args:
+        players (list): list of lists where each sublist contains the number of players and their level
+
+    Returns:
+        list: a list of recommended xp for encounter
+    """
+    recommended_xp = []
+
+    for num_players, level in players:
+        recommended = [xp * num_players for xp in TABLE[level - 1]]
+        recommended_xp.append(recommended)
+
+    if len(recommended_xp) > 1:
+        sums = [0] * len(recommended_xp[0])
+
+        for xp_list in recommended_xp:
+            for i in range(len(xp_list)):
+                sums[i] += xp_list[i]
+
+        return sums
+    else:
+        return recommended_xp[0] if recommended_xp else []
+
+
+print(encounter_level_number_of_players([[4, 4]]))
