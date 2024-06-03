@@ -33,6 +33,7 @@ setup(
     author="Francocontigo",
     python_requires=">=3.12",
     packages=find_packages(),
+    include_package_data=True,
     install_requires=read_requirements("requirements.txt"),
     extras_require={
         "test": read_requirements("requirements.test.txt"),
