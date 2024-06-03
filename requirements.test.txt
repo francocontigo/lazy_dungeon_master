@@ -2,3 +2,4 @@ pytest
 ruff
 flake8
 pyproject-flake8
+wheel
