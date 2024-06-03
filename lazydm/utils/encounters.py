@@ -28,7 +28,8 @@ def encounter_level_number_of_players(players: list) -> list:
     """Returns the recommended XP of the encounter
 
     Args:
-        players (list): list of lists where each sublist contains the number of players and their level
+        players (list): list of lists where each sublist contains the number of
+        players and their level
 
     Returns:
         list: a list of recommended xp for encounter
