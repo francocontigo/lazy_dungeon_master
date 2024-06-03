@@ -28,10 +28,8 @@ jobs:
                 run: pip install '.[test]'
             -   name: Look for style errors
                 run: pflake8
-            -   name: Check import style
-                run: isort dundie test integration
             -   name: Look for auto format errors
-                run: black --check --diff dundie tests integration
+                run: black --check --diff lazydm tests
 
     tests:
         needs: lint
